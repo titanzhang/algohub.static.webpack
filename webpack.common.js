@@ -8,7 +8,8 @@ module.exports = {
   	ahbase: './src/modules/AHBase.js',
   	general: './src/modules/common.js',
   	MgmtContentSection: './src/pages/MgmtContentSection.js',
-  	MgmtContentName: './src/pages/MgmtContentName.js'
+  	MgmtContentName: './src/pages/MgmtContentName.js',
+    SiteAlgo: './src/pages/SiteAlgo.js'
   },
 
   plugins: [
@@ -31,7 +32,7 @@ module.exports = {
 	module: {
 		rules: [
 			{ test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
-			{ 
+			{
 				test: /\.css$/,
 				use: ExtractTextPlugin.extract({
         	fallback: "style-loader",

@@ -3,7 +3,7 @@ import Utils from './common';
 class UserNameInput {
 	init(loginUrl, checkUrl, inputID) {
 		if (!loginUrl || !checkUrl || !inputID) throw new Error('UserNameInput::Init error');
-		
+
 		const inputObj = $('#' + inputID);
 
 		this.login = this.onLogin(loginUrl, inputObj);
@@ -63,7 +63,6 @@ class UserNameInput {
 					const uname = inputObj.val().trim();
 					if (uname.length > 0) {
 						const login = await self.login(uname);
-						// console.log(login);
 					}
 				})();
 				return false;
