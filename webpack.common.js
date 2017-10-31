@@ -9,7 +9,8 @@ module.exports = {
   	general: './src/modules/common.js',
   	MgmtContentSection: './src/pages/MgmtContentSection.js',
   	MgmtContentName: './src/pages/MgmtContentName.js',
-    SiteAlgo: './src/pages/SiteAlgo.js'
+    SiteAlgo: './src/pages/SiteAlgo.js',
+    SiteDefault: './src/pages/SiteDefault.js'
   },
 
   plugins: [
