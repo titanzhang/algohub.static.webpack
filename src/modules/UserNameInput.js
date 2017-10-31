@@ -11,12 +11,9 @@ class UserNameInput {
 		this.getUser = this.onGetUser(inputObj);
 		inputObj.keypress(this.onKeyPress(inputObj));
 
-		(async () => {
-			const uname = await this.checkLogin();
-			if (uname) {
-				inputObj.val(uname);
-			}
-		})();
+		this.checkLogin().then(uname => {
+			inputObj.val(uname);
+		});
 	}
 
 	onGetUser(inputObj) {
