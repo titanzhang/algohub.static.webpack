@@ -21,20 +21,20 @@ class MDEditor {
 					title: 'Youtube Video'
 				}, '|',
 				'preview', '|', 'guide'
-			]
+			],
+			previewRender: (plainText, preview) => {
+				const defaultRender = self.editor.markdown.bind(self.editor);
+				setTimeout(function() {
+					try {
+						preview.innerHTML = defaultRender(self.ytVideoRender(plainText))
+					} catch(e) {
+						preview.innerHTML = 'Failed';
+					}
+				}, 250);
+				return 'Loading ...';
+			}
 		});
 
-		this.editor.previewRender = (plainText, preview) => {
-			const defaultRender = editor.parent.markdown.bind(editor.parent);
-			setTimeout(function() {
-				try {
-					preview.innerHTML = defaultRender(self.ytVideoRender(plainText))
-				} catch(e) {
-					preview.innerHTML = 'Failed';
-				}
-			}, 250);
-			return 'Loading ...';
-		};
 	}
 
 	get value() {
@@ -73,14 +73,14 @@ class MDEditor {
 			startIndex = plainText.indexOf(startTag);
 		}
 
-		return plainText;		
+		return plainText;
 	}
 
 	ytVideo(editor) {
 		const cm = editor.codemirror;
 		const selectedText = cm.getSelection();
 		const text = selectedText || 'youtube link';
-		cm.replaceSelection('{% youtube ' + text + ' %}');		
+		cm.replaceSelection('{% youtube ' + text + ' %}');
 	}
 }
 
