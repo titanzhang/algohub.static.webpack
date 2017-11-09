@@ -2,6 +2,7 @@ class AHBase {
 	constructor() {
 		this.configList = {};
 		this.eventList = {};
+		this.initList = [];
 	}
 
 	static get instance() {
@@ -46,6 +47,15 @@ class AHBase {
 		}
 	}
 
+	addInit(fun) {
+		this.initList.push(fun);
+	}
+
+	runInit(lib) {
+		for (const fun of this.initList) {
+			setTimeout(fun, 0, lib);
+		}
+	}
 }
 
 export default AHBase.instance;
