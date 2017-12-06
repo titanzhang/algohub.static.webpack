@@ -79,7 +79,7 @@ class MDEditor {
 	ytVideo(editor) {
 		const cm = editor.codemirror;
 		const selectedText = cm.getSelection();
-		const text = selectedText || 'youtube link';
+		const text = selectedText || '<youtube_link>';
 		cm.replaceSelection('{% youtube ' + text + ' %}');
 	}
 }
